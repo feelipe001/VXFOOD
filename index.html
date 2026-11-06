@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,15 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#100C14">
 
-<title>VXFOOD | Faça seu pedido</title>
+<title>VXFOOD</title>
 
 <style>
 :root {
   --bg: #100C14;
   --card: #1D1723;
-  --card2: #281F30;
   --purple: #A855F7;
-  --purple-dark: #7E22CE;
   --white: #FFFFFF;
   --gray: #B7AEBF;
   --border: #382D42;
@@ -30,8 +29,7 @@
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
   padding-bottom: 100px;
 }
 
@@ -45,7 +43,6 @@ button {
 }
 
 .container {
-  width: 100%;
   max-width: 600px;
   margin: auto;
   padding: 18px;
@@ -61,200 +58,169 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0 22px;
+  padding: 12px 0 25px;
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 29px;
   font-weight: 900;
-  letter-spacing: -1px;
 }
 
 .logo span {
   color: var(--purple);
 }
 
-.tag {
-  background: var(--card2);
-  color: #D8B4FE;
-  font-size: 10px;
-  padding: 8px 10px;
-  border-radius: 20px;
-}
-
-/* INÍCIO */
+/* TELA INICIAL */
 
 .hero {
-  padding: 25px 0;
+  margin: 25px 0;
 }
 
 .hero h1 {
-  font-size: 30px;
+  font-size: 27px;
   line-height: 1.2;
-  margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 14px;
   color: var(--gray);
-  line-height: 1.5;
-}
-
-.section-title {
-  font-size: 20px;
-  margin: 20px 0 15px;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 .category-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 13px;
+  gap: 12px;
+  margin-top: 25px;
 }
 
 .category-card {
   background: var(--card);
+  color: white;
   border: 1px solid var(--border);
   border-radius: 17px;
   overflow: hidden;
-  color: white;
   text-align: left;
-  transition: .2s;
-}
-
-.category-card:active {
-  transform: scale(.98);
 }
 
 .category-card img {
   width: 100%;
-  height: 150px;
+  height: 190px;
   object-fit: cover;
   display: block;
 }
 
 .category-content {
-  padding: 14px;
+  padding: 15px;
 }
 
-.category-content h3 {
-  font-size: 19px;
+.category-content h2 {
+  font-size: 21px;
   margin-bottom: 8px;
 }
 
 .category-content p {
+  font-size: 13px;
   color: var(--gray);
-  font-size: 12px;
-  line-height: 1.5;
-  margin-bottom: 13px;
+  line-height: 1.4;
 }
 
 .category-content span {
+  display: block;
+  margin-top: 15px;
   color: #D8B4FE;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-/* CATEGORIAS */
-
-.back-button {
-  background: transparent;
-  color: #D8B4FE;
-  padding: 10px 0;
-  margin-bottom: 10px;
-}
-
-.category-heading {
-  margin: 15px 0 22px;
-}
-
-.category-heading h1 {
-  font-size: 27px;
-}
-
-.category-heading p {
-  color: var(--gray);
   font-size: 13px;
-  margin-top: 7px;
+  font-weight: bold;
 }
 
 /* PRODUTOS */
 
+.back-button {
+  background: transparent;
+  color: #D8B4FE;
+  padding: 10px 0 20px;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+.subtitle {
+  color: var(--gray);
+  font-size: 13px;
+  margin: 8px 0 20px;
+}
+
 .product-list {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .product-card {
   display: flex;
-  gap: 13px;
+  gap: 12px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 17px;
+  border-radius: 15px;
   padding: 12px;
 }
 
 .product-card img {
-  width: 112px;
-  height: 112px;
+  width: 105px;
+  height: 105px;
   object-fit: cover;
-  border-radius: 12px;
-  flex-shrink: 0;
+  border-radius: 11px;
 }
 
 .product-info {
   flex: 1;
-  min-width: 0;
 }
 
 .product-info h3 {
   font-size: 16px;
-  margin: 4px 0 7px;
+  margin: 5px 0;
 }
 
 .product-info p {
   color: var(--gray);
   font-size: 12px;
-  line-height: 1.4;
-  margin-bottom: 10px;
+  margin: 7px 0;
 }
 
-.product-price {
+.price {
   color: #D8B4FE;
   font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 10px;
+  margin: 8px 0;
 }
 
 .small-button {
-  background: var(--purple-dark);
+  background: var(--purple);
   color: white;
   border-radius: 9px;
-  padding: 10px 14px;
+  padding: 9px 13px;
   font-size: 12px;
   font-weight: bold;
 }
 
-/* PAINEL DE MONTAGEM */
+/* MONTAGEM */
 
 .panel {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 18px;
+  border-radius: 16px;
+  padding: 17px;
   margin-top: 20px;
 }
 
 .panel h3 {
-  font-size: 19px;
   margin-bottom: 15px;
 }
 
 .field-label {
   display: block;
   font-size: 13px;
-  margin: 16px 0 9px;
+  margin: 15px 0 8px;
   color: #E9D5FF;
-  font-weight: bold;
 }
 
 select, input[type="text"], textarea {
@@ -262,85 +228,69 @@ select, input[type="text"], textarea {
   background: #17111D;
   color: white;
   border: 1px solid var(--border);
-  border-radius: 11px;
+  border-radius: 10px;
   padding: 13px;
-  outline: none;
-}
-
-select:focus, input:focus, textarea:focus {
-  border-color: var(--purple);
 }
 
 .option-list {
   display: grid;
-  gap: 9px;
+  gap: 8px;
 }
 
 .option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 11px;
+  gap: 8px;
   background: #17111D;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
   font-size: 13px;
 }
 
 .option input {
   accent-color: var(--purple);
-  margin-right: 8px;
-}
-
-.option label {
-  flex: 1;
-  cursor: pointer;
+  margin-right: 7px;
 }
 
 .option-price {
   color: #D8B4FE;
   white-space: nowrap;
-  font-size: 12px;
 }
 
-.quantity-control {
+.quantity {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 15px;
   margin-top: 15px;
 }
 
-.quantity-control button {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--card2);
+.quantity button {
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  background: #35213F;
   color: white;
   font-size: 20px;
 }
 
-.quantity-control span {
-  font-weight: bold;
-}
-
 .primary-button {
   width: 100%;
-  padding: 16px;
-  border-radius: 13px;
+  background: var(--purple);
   color: white;
-  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  padding: 15px;
+  border-radius: 11px;
   font-weight: bold;
-  font-size: 15px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .secondary-button {
   width: 100%;
   padding: 13px;
-  border-radius: 12px;
-  color: #D8B4FE;
-  background: var(--card2);
+  background: #35213F;
+  color: white;
+  border-radius: 10px;
   margin-top: 10px;
 }
 
@@ -348,65 +298,31 @@ select:focus, input:focus, textarea:focus {
 
 .cart-item {
   border-bottom: 1px solid var(--border);
-  padding: 14px 0;
-}
-
-.cart-item:last-child {
-  border-bottom: none;
-}
-
-.cart-item-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.cart-item h4 {
-  font-size: 14px;
-  margin-bottom: 6px;
+  padding: 12px 0;
+  font-size: 13px;
 }
 
 .cart-item p {
-  font-size: 12px;
   color: var(--gray);
-  line-height: 1.5;
-  margin-bottom: 6px;
+  margin-top: 5px;
 }
 
 .remove-button {
   color: #F87171;
   background: transparent;
-  font-size: 12px;
-  padding: 5px;
+  margin-top: 5px;
 }
 
-.total-line {
+.total {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 15px;
-  font-size: 16px;
+  margin-top: 18px;
+  font-size: 17px;
 }
 
-.total-line strong {
+.total strong {
   color: #D8B4FE;
-  font-size: 22px;
 }
-
-.empty-cart {
-  color: var(--gray);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.footer {
-  text-align: center;
-  color: #807687;
-  font-size: 11px;
-  padding: 30px 0;
-}
-
-/* BOTÃO FIXO */
 
 .cart-floating {
   position: fixed;
@@ -414,9 +330,8 @@ select:focus, input:focus, textarea:focus {
   left: 0;
   width: 100%;
   padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
-  background: rgba(16, 12, 20, .96);
+  background: #100C14;
   border-top: 1px solid var(--border);
-  z-index: 10;
 }
 
 .cart-floating button {
@@ -424,27 +339,25 @@ select:focus, input:focus, textarea:focus {
   margin: auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   background: var(--green);
   color: #071B0E;
-  padding: 15px 18px;
-  border-radius: 13px;
+  padding: 15px;
+  border-radius: 12px;
   font-weight: bold;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .category-card img {
-    height: 115px;
+    height: 145px;
   }
 
-  .product-card img {
-    width: 90px;
-    height: 100px;
+  .category-content {
+    padding: 11px;
   }
 
-  .hero h1 {
-    font-size: 26px;
+  .category-content h2 {
+    font-size: 18px;
   }
 }
 </style>
@@ -456,46 +369,47 @@ select:focus, input:focus, textarea:focus {
 
 <header>
   <div class="logo">VX<span>FOOD</span></div>
-  <div class="tag">FAÇA SEU PEDIDO</div>
 </header>
 
-<!-- TELA INICIAL -->
+<!-- ESCOLHA INICIAL -->
 
 <section id="home">
 
   <div class="hero">
-    <h1>Bateu a fome?<br>Escolha seu pedido.</h1>
-    <p>Monte do seu jeito e peça pelo WhatsApp.</p>
+    <h1>O que você vai querer hoje?</h1>
+    <p>Escolha seu favorito.</p>
   </div>
-
-  <h2 class="section-title">O que você vai querer hoje?</h2>
 
   <div class="category-grid">
 
     <button class="category-card" onclick="openCategory('acai')">
+
       <img
         src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80"
         alt="Açaí"
       >
 
       <div class="category-content">
-        <h3>🍧 Açaí</h3>
-        <p>Monte seu açaí com seus adicionais favoritos.</p>
-        <span>ESCOLHER AÇAÍ →</span>
+        <h2>🍧 Açaí</h2>
+        <p>Monte seu açaí favorito.</p>
+        <span>ESCOLHER →</span>
       </div>
+
     </button>
 
     <button class="category-card" onclick="openCategory('pastel')">
+
       <img
         src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
         alt="Pastel"
       >
 
       <div class="category-content">
-        <h3>🥟 Pastel</h3>
-        <p>Escolha seus sabores favoritos.</p>
-        <span>ESCOLHER PASTEL →</span>
+        <h2>🥟 Pastel</h2>
+        <p>Escolha seu pastel favorito.</p>
+        <span>ESCOLHER →</span>
       </div>
+
     </button>
 
   </div>
@@ -506,12 +420,10 @@ select:focus, input:focus, textarea:focus {
 
 <section id="acaiPage" class="hidden">
 
-  <button class="back-button" onclick="goHome()">← Voltar ao início</button>
+  <button class="back-button" onclick="goHome()">← Voltar</button>
 
-  <div class="category-heading">
-    <h1>🍧 Monte seu açaí</h1>
-    <p>Escolha o tamanho e seus adicionais.</p>
-  </div>
+  <h1>🍧 Açaí</h1>
+  <p class="subtitle">Escolha seu tamanho.</p>
 
   <div class="product-list">
 
@@ -519,16 +431,16 @@ select:focus, input:focus, textarea:focus {
 
       <img
         src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=500&q=80"
-        alt="Açaí tradicional"
+        alt="Açaí"
       >
 
       <div class="product-info">
         <h3>Açaí tradicional</h3>
-        <p>Açaí cremoso para montar do seu jeito.</p>
-        <div class="product-price">A partir de R$ 15,00</div>
+        <p>Monte com seus adicionais.</p>
+        <div class="price">A partir de R$ 15,00</div>
 
         <button class="small-button" onclick="openBuilder('acai')">
-          Montar açaí
+          Escolher
         </button>
       </div>
 
@@ -540,9 +452,9 @@ select:focus, input:focus, textarea:focus {
 
     <h3>Monte seu açaí</h3>
 
-    <label class="field-label" for="acaiSize">Escolha o tamanho</label>
+    <label class="field-label">Tamanho</label>
 
-    <select id="acaiSize" onchange="updateBuilderPrice()">
+    <select id="acaiSize" onchange="updatePrice()">
       <option value="300ml" data-price="15">300ml — R$ 15,00</option>
       <option value="500ml" data-price="20">500ml — R$ 20,00</option>
       <option value="700ml" data-price="25">700ml — R$ 25,00</option>
@@ -554,55 +466,55 @@ select:focus, input:focus, textarea:focus {
 
       <div class="option">
         <label><input type="checkbox" name="acaiExtra" value="Banana" data-price="2"> Banana</label>
-        <span class="option-price">+ R$ 2,00</span>
+        <span class="option-price">+ R$ 2</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="acaiExtra" value="Morango" data-price="3"> Morango</label>
-        <span class="option-price">+ R$ 3,00</span>
+        <span class="option-price">+ R$ 3</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="acaiExtra" value="Granola" data-price="2"> Granola</label>
-        <span class="option-price">+ R$ 2,00</span>
+        <span class="option-price">+ R$ 2</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="acaiExtra" value="Leite em pó" data-price="2"> Leite em pó</label>
-        <span class="option-price">+ R$ 2,00</span>
+        <span class="option-price">+ R$ 2</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="acaiExtra" value="Leite condensado" data-price="2"> Leite condensado</label>
-        <span class="option-price">+ R$ 2,00</span>
+        <span class="option-price">+ R$ 2</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="acaiExtra" value="Nutella" data-price="5"> Nutella</label>
-        <span class="option-price">+ R$ 5,00</span>
+        <span class="option-price">+ R$ 5</span>
       </div>
 
     </div>
 
     <label class="field-label">Quantidade</label>
 
-    <div class="quantity-control">
-      <button onclick="changeBuilderQty(-1)">−</button>
-      <span id="builderQty">1</span>
-      <button onclick="changeBuilderQty(1)">+</button>
+    <div class="quantity">
+      <button onclick="changeQty(-1)">−</button>
+      <span id="qty">1</span>
+      <button onclick="changeQty(1)">+</button>
     </div>
 
-    <div class="total-line">
-      <span>Subtotal</span>
-      <strong id="builderPrice">R$ 15,00</strong>
+    <div class="total">
+      <span>Total</span>
+      <strong id="builderTotal">R$ 15,00</strong>
     </div>
 
-    <button class="primary-button" onclick="addBuilderToCart()">
-      Adicionar ao carrinho
+    <button class="primary-button" onclick="addToCart()">
+      Adicionar ao pedido
     </button>
 
     <button class="secondary-button" onclick="closeBuilder()">
-      Cancelar
+      Voltar
     </button>
 
   </div>
@@ -613,12 +525,10 @@ select:focus, input:focus, textarea:focus {
 
 <section id="pastelPage" class="hidden">
 
-  <button class="back-button" onclick="goHome()">← Voltar ao início</button>
+  <button class="back-button" onclick="goHome()">← Voltar</button>
 
-  <div class="category-heading">
-    <h1>🥟 Escolha seu pastel</h1>
-    <p>Selecione o sabor e seus adicionais.</p>
-  </div>
+  <h1>🥟 Pastel</h1>
+  <p class="subtitle">Escolha seu sabor.</p>
 
   <div class="product-list">
 
@@ -630,12 +540,9 @@ select:focus, input:focus, textarea:focus {
 
       <div class="product-info">
         <h3>Pastel de carne</h3>
-        <p>Pastel crocante com recheio de carne.</p>
-        <div class="product-price">R$ 16,00</div>
-
-        <button class="small-button" onclick="openBuilder('pastel', 'Carne')">
-          Escolher
-        </button>
+        <p>Pastel crocante e saboroso.</p>
+        <div class="price">R$ 16,00</div>
+        <button class="small-button" onclick="openBuilder('pastel','Carne')">Escolher</button>
       </div>
     </div>
 
@@ -647,12 +554,9 @@ select:focus, input:focus, textarea:focus {
 
       <div class="product-info">
         <h3>Pastel de queijo</h3>
-        <p>Recheio de queijo derretido.</p>
-        <div class="product-price">R$ 16,00</div>
-
-        <button class="small-button" onclick="openBuilder('pastel', 'Queijo')">
-          Escolher
-        </button>
+        <p>Queijo derretido.</p>
+        <div class="price">R$ 16,00</div>
+        <button class="small-button" onclick="openBuilder('pastel','Queijo')">Escolher</button>
       </div>
     </div>
 
@@ -664,12 +568,9 @@ select:focus, input:focus, textarea:focus {
 
       <div class="product-info">
         <h3>Pastel de frango</h3>
-        <p>Pastel recheado com frango.</p>
-        <div class="product-price">R$ 16,00</div>
-
-        <button class="small-button" onclick="openBuilder('pastel', 'Frango')">
-          Escolher
-        </button>
+        <p>Recheio de frango.</p>
+        <div class="price">R$ 16,00</div>
+        <button class="small-button" onclick="openBuilder('pastel','Frango')">Escolher</button>
       </div>
     </div>
 
@@ -682,11 +583,8 @@ select:focus, input:focus, textarea:focus {
       <div class="product-info">
         <h3>Pastel de pizza</h3>
         <p>Queijo, presunto e tomate.</p>
-        <div class="product-price">R$ 16,00</div>
-
-        <button class="small-button" onclick="openBuilder('pastel', 'Pizza')">
-          Escolher
-        </button>
+        <div class="price">R$ 16,00</div>
+        <button class="small-button" onclick="openBuilder('pastel','Pizza')">Escolher</button>
       </div>
     </div>
 
@@ -694,11 +592,11 @@ select:focus, input:focus, textarea:focus {
 
   <div id="pastelBuilder" class="panel hidden">
 
-    <h3 id="pastelBuilderTitle">Monte seu pastel</h3>
+    <h3>Monte seu pastel</h3>
 
-    <label class="field-label">Escolha o sabor</label>
+    <label class="field-label">Sabor</label>
 
-    <select id="pastelFlavor" onchange="updateBuilderPrice()">
+    <select id="pastelFlavor" onchange="updatePrice()">
       <option value="Carne" data-price="16">Carne — R$ 16,00</option>
       <option value="Queijo" data-price="16">Queijo — R$ 16,00</option>
       <option value="Frango" data-price="16">Frango — R$ 16,00</option>
@@ -711,40 +609,40 @@ select:focus, input:focus, textarea:focus {
 
       <div class="option">
         <label><input type="checkbox" name="pastelExtra" value="Queijo extra" data-price="3"> Queijo extra</label>
-        <span class="option-price">+ R$ 3,00</span>
+        <span class="option-price">+ R$ 3</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="pastelExtra" value="Catupiry" data-price="4"> Catupiry</label>
-        <span class="option-price">+ R$ 4,00</span>
+        <span class="option-price">+ R$ 4</span>
       </div>
 
       <div class="option">
         <label><input type="checkbox" name="pastelExtra" value="Bacon" data-price="4"> Bacon</label>
-        <span class="option-price">+ R$ 4,00</span>
+        <span class="option-price">+ R$ 4</span>
       </div>
 
     </div>
 
     <label class="field-label">Quantidade</label>
 
-    <div class="quantity-control">
-      <button onclick="changeBuilderQty(-1)">−</button>
-      <span id="builderQtyPastel">1</span>
-      <button onclick="changeBuilderQty(1)">+</button>
+    <div class="quantity">
+      <button onclick="changeQty(-1)">−</button>
+      <span id="qtyPastel">1</span>
+      <button onclick="changeQty(1)">+</button>
     </div>
 
-    <div class="total-line">
-      <span>Subtotal</span>
-      <strong id="builderPricePastel">R$ 16,00</strong>
+    <div class="total">
+      <span>Total</span>
+      <strong id="builderTotalPastel">R$ 16,00</strong>
     </div>
 
-    <button class="primary-button" onclick="addBuilderToCart()">
-      Adicionar ao carrinho
+    <button class="primary-button" onclick="addToCart()">
+      Adicionar ao pedido
     </button>
 
     <button class="secondary-button" onclick="closeBuilder()">
-      Cancelar
+      Voltar
     </button>
 
   </div>
@@ -757,70 +655,58 @@ select:focus, input:focus, textarea:focus {
 
   <div class="panel">
 
-    <h3>🛒 Seu pedido</h3>
+    <h3>🛒 Meu pedido</h3>
 
     <div id="cartItems">
-      <p class="empty-cart">Seu carrinho está vazio. Escolha um açaí ou pastel para começar.</p>
+      <p style="color:#B7AEBF;font-size:13px">
+        Seu pedido está vazio.
+      </p>
     </div>
 
-    <div class="total-line">
-      <span>Total do pedido</span>
+    <div class="total">
+      <span>Total</span>
       <strong id="cartTotal">R$ 0,00</strong>
     </div>
 
-    <label class="field-label" for="customerName">Seu nome</label>
+    <label class="field-label">Seu nome</label>
     <input type="text" id="customerName" placeholder="Digite seu nome">
 
-    <label class="field-label" for="customerAddress">Endereço de entrega</label>
+    <label class="field-label">Endereço</label>
     <input type="text" id="customerAddress" placeholder="Rua, número e bairro">
 
-    <label class="field-label" for="customerNote">Observações</label>
-    <textarea id="customerNote" rows="3" placeholder="Alguma observação para o pedido?"></textarea>
+    <label class="field-label">Observações</label>
+    <textarea id="customerNote" rows="2" placeholder="Alguma observação?"></textarea>
 
     <button class="primary-button" onclick="finishOrder()">
-      Finalizar pedido pelo WhatsApp
+      Finalizar pelo WhatsApp
     </button>
 
   </div>
 
 </section>
 
-<div class="footer">
-  VXFOOD • Açaí e Pastel
 </div>
 
-</div>
-
-<!-- BOTÃO FIXO DO CARRINHO -->
+<!-- CARRINHO FIXO -->
 
 <div class="cart-floating">
   <button onclick="goToCart()">
-    <span>🛒 Ver meu pedido</span>
+    <span>🛒 Meu pedido</span>
     <span id="floatingTotal">R$ 0,00</span>
   </button>
 </div>
 
 <script>
 
-// ===================================
-// CONFIGURAÇÕES
-// ===================================
-
-// WhatsApp da VXFOOD
-// Formato: código do país + DDD + número
+// WHATSAPP DA VXFOOD
 const WHATSAPP = "5512991599185";
 
-// Carrinho
 let cart = [];
-
-// Produto sendo montado
 let builderType = "";
 let builderQty = 1;
 
 
-// ===================================
 // NAVEGAÇÃO
-// ===================================
 
 function openCategory(category) {
 
@@ -830,17 +716,12 @@ function openCategory(category) {
 
   closeBuilder();
 
-  if (category === "acai") {
-    document.getElementById("acaiPage").classList.remove("hidden");
-  }
-
-  if (category === "pastel") {
-    document.getElementById("pastelPage").classList.remove("hidden");
-  }
+  document.getElementById(
+    category === "acai" ? "acaiPage" : "pastelPage"
+  ).classList.remove("hidden");
 
   window.scrollTo(0, 0);
 }
-
 
 function goHome() {
 
@@ -852,7 +733,6 @@ function goHome() {
 
   window.scrollTo(0, 0);
 }
-
 
 function goToCart() {
 
@@ -868,58 +748,42 @@ function goToCart() {
 }
 
 
-// ===================================
-// MONTAGEM DOS PRODUTOS
-// ===================================
+// MONTAGEM
 
 function openBuilder(type, flavor = "") {
 
   builderType = type;
   builderQty = 1;
 
-  document.getElementById("builderQty").textContent = 1;
-  document.getElementById("builderQtyPastel").textContent = 1;
+  document.getElementById("qty").textContent = 1;
+  document.getElementById("qtyPastel").textContent = 1;
 
-  document.querySelectorAll('input[name="acaiExtra"]').forEach(input => {
-    input.checked = false;
-  });
-
-  document.querySelectorAll('input[name="pastelExtra"]').forEach(input => {
-    input.checked = false;
-  });
+  document.querySelectorAll(
+    'input[name="acaiExtra"], input[name="pastelExtra"]'
+  ).forEach(input => input.checked = false);
 
   if (type === "acai") {
 
     document.getElementById("acaiBuilder").classList.remove("hidden");
-
     document.getElementById("pastelBuilder").classList.add("hidden");
 
     document.getElementById("acaiSize").selectedIndex = 0;
 
-  }
-
-  if (type === "pastel") {
+  } else {
 
     document.getElementById("pastelBuilder").classList.remove("hidden");
-
     document.getElementById("acaiBuilder").classList.add("hidden");
 
     document.getElementById("pastelFlavor").value = flavor;
 
   }
 
-  updateBuilderPrice();
+  updatePrice();
 
-  const panel = type === "acai"
-    ? document.getElementById("acaiBuilder")
-    : document.getElementById("pastelBuilder");
-
-  panel.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
+  document.getElementById(
+    type === "acai" ? "acaiBuilder" : "pastelBuilder"
+  ).scrollIntoView({ behavior: "smooth" });
 }
-
 
 function closeBuilder() {
 
@@ -928,159 +792,55 @@ function closeBuilder() {
 
 }
 
-
-function changeBuilderQty(value) {
+function changeQty(value) {
 
   builderQty += value;
 
-  if (builderQty < 1) {
-    builderQty = 1;
-  }
+  if (builderQty < 1) builderQty = 1;
 
-  document.getElementById("builderQty").textContent = builderQty;
-  document.getElementById("builderQtyPastel").textContent = builderQty;
+  document.getElementById("qty").textContent = builderQty;
+  document.getElementById("qtyPastel").textContent = builderQty;
 
-  updateBuilderPrice();
+  updatePrice();
 }
-
 
 function getBuilderPrice() {
 
-  let basePrice = 0;
+  let price = 0;
   let extras = [];
 
   if (builderType === "acai") {
 
-    const size = document.getElementById("acaiSize");
+    const select = document.getElementById("acaiSize");
 
-    basePrice = Number(
-      size.options[size.selectedIndex].dataset.price
-    );
+    price = Number(select.options[select.selectedIndex].dataset.price);
 
     document.querySelectorAll('input[name="acaiExtra"]:checked')
       .forEach(input => {
 
-        basePrice += Number(input.dataset.price);
-
+        price += Number(input.dataset.price);
         extras.push(input.value);
 
       });
 
-  }
+  } else {
 
-  if (builderType === "pastel") {
+    const select = document.getElementById("pastelFlavor");
 
-    const flavor = document.getElementById("pastelFlavor");
-
-    basePrice = Number(
-      flavor.options[flavor.selectedIndex].dataset.price
-    );
+    price = Number(select.options[select.selectedIndex].dataset.price);
 
     document.querySelectorAll('input[name="pastelExtra"]:checked')
       .forEach(input => {
 
-        basePrice += Number(input.dataset.price);
-
+        price += Number(input.dataset.price);
         extras.push(input.value);
 
       });
 
   }
 
-  return {
-    price: basePrice,
-    extras: extras
-  };
+  return { price, extras };
 }
-
-
-function updateBuilderPrice() {
-
-  const result = getBuilderPrice();
-
-  const total = result.price * builderQty;
-
-  document.getElementById("builderPrice").textContent =
-    formatPrice(total);
-
-  document.getElementById("builderPricePastel").textContent =
-    formatPrice(total);
-
-}
-
-
-// ===================================
-// ADICIONAR AO CARRINHO
-// ===================================
-
-function addBuilderToCart() {
-
-  const result = getBuilderPrice();
-
-  let name = "";
-  let details = "";
-
-  if (builderType === "acai") {
-
-    const size = document.getElementById("acaiSize").value;
-
-    name = "Açaí " + size;
-
-    details = result.extras.length
-      ? result.extras.join(", ")
-      : "Sem adicionais";
-
-  }
-
-  if (builderType === "pastel") {
-
-    const flavor = document.getElementById("pastelFlavor").value;
-
-    name = "Pastel de " + flavor;
-
-    details = result.extras.length
-      ? result.extras.join(", ")
-      : "Sem adicionais";
-
-  }
-
-  cart.push({
-
-    id: Date.now() + Math.random(),
-
-    name: name,
-
-    details: details,
-
-    unitPrice: result.price,
-
-    quantity: builderQty,
-
-    total: result.price * builderQty
-
-  });
-
-  renderCart();
-
-  closeBuilder();
-
-  alert("Produto adicionado ao carrinho!");
-
-}
-
-
-// ===================================
-// CARRINHO
-// ===================================
-
-function removeItem(id) {
-
-  cart = cart.filter(item => item.id !== id);
-
-  renderCart();
-
-}
-
 
 function formatPrice(value) {
 
@@ -1091,15 +851,70 @@ function formatPrice(value) {
 
 }
 
+function updatePrice() {
 
-function getCartTotal() {
+  const result = getBuilderPrice();
+  const total = result.price * builderQty;
 
-  return cart.reduce((total, item) => {
-    return total + item.total;
-  }, 0);
+  document.getElementById("builderTotal").textContent = formatPrice(total);
+  document.getElementById("builderTotalPastel").textContent = formatPrice(total);
 
 }
 
+
+// CARRINHO
+
+function addToCart() {
+
+  const result = getBuilderPrice();
+
+  let name;
+  let details;
+
+  if (builderType === "acai") {
+
+    name = "Açaí " + document.getElementById("acaiSize").value;
+
+  } else {
+
+    name = "Pastel de " + document.getElementById("pastelFlavor").value;
+
+  }
+
+  details = result.extras.length
+    ? result.extras.join(", ")
+    : "Sem adicionais";
+
+  cart.push({
+
+    id: Date.now() + Math.random(),
+    name,
+    details,
+    quantity: builderQty,
+    total: result.price * builderQty
+
+  });
+
+  renderCart();
+  closeBuilder();
+
+  alert("Adicionado ao pedido!");
+
+}
+
+function removeItem(id) {
+
+  cart = cart.filter(item => item.id !== id);
+
+  renderCart();
+
+}
+
+function getCartTotal() {
+
+  return cart.reduce((total, item) => total + item.total, 0);
+
+}
 
 function renderCart() {
 
@@ -1107,22 +922,18 @@ function renderCart() {
 
   const total = getCartTotal();
 
-  document.getElementById("cartTotal").textContent =
-    formatPrice(total);
-
-  document.getElementById("floatingTotal").textContent =
-    formatPrice(total);
+  document.getElementById("cartTotal").textContent = formatPrice(total);
+  document.getElementById("floatingTotal").textContent = formatPrice(total);
 
   if (cart.length === 0) {
 
     container.innerHTML = `
-      <p class="empty-cart">
-        Seu carrinho está vazio. Escolha um açaí ou pastel para começar.
+      <p style="color:#B7AEBF;font-size:13px">
+        Seu pedido está vazio.
       </p>
     `;
 
     return;
-
   }
 
   container.innerHTML = "";
@@ -1130,47 +941,23 @@ function renderCart() {
   cart.forEach(item => {
 
     const div = document.createElement("div");
-
     div.className = "cart-item";
 
-    const top = document.createElement("div");
-
-    top.className = "cart-item-top";
-
-    const info = document.createElement("div");
-
-    const title = document.createElement("h4");
-
-    title.textContent =
-      item.quantity + "x " + item.name;
+    const title = document.createElement("strong");
+    title.textContent = item.quantity + "x " + item.name;
 
     const details = document.createElement("p");
-
-    details.textContent =
-      "Adicionais: " + item.details;
+    details.textContent = "Adicionais: " + item.details;
 
     const price = document.createElement("p");
-
-    price.textContent =
-      formatPrice(item.total);
+    price.textContent = formatPrice(item.total);
 
     const remove = document.createElement("button");
-
     remove.className = "remove-button";
-
     remove.textContent = "Remover";
-
     remove.onclick = () => removeItem(item.id);
 
-    info.appendChild(title);
-    info.appendChild(details);
-    info.appendChild(price);
-
-    top.appendChild(info);
-    top.appendChild(remove);
-
-    div.appendChild(top);
-
+    div.append(title, details, price, remove);
     container.appendChild(div);
 
   });
@@ -1178,75 +965,50 @@ function renderCart() {
 }
 
 
-// ===================================
-// FINALIZAR PEDIDO NO WHATSAPP
-// ===================================
+// WHATSAPP
 
 function finishOrder() {
 
   if (cart.length === 0) {
-
-    alert("Seu carrinho está vazio!");
-
+    alert("Seu pedido está vazio!");
     return;
-
   }
 
   const name = document.getElementById("customerName").value.trim();
-
   const address = document.getElementById("customerAddress").value.trim();
-
   const note = document.getElementById("customerNote").value.trim();
 
   if (!name) {
-
-    alert("Por favor, informe seu nome.");
-
+    alert("Digite seu nome.");
     document.getElementById("customerName").focus();
-
     return;
-
   }
 
   if (!address) {
-
-    alert("Por favor, informe o endereço de entrega.");
-
+    alert("Digite seu endereço.");
     document.getElementById("customerAddress").focus();
-
     return;
-
   }
 
-  let message = "🛍️ *NOVO PEDIDO - VXFOOD*\n\n";
+  let message = "🛍️ *PEDIDO VXFOOD*\n\n";
 
-  message += "👤 *Cliente:* " + name + "\n";
-
-  message += "📍 *Endereço:* " + address + "\n\n";
-
-  message += "🍽️ *ITENS DO PEDIDO:*\n\n";
+  message += "Cliente: " + name + "\n";
+  message += "Endereço: " + address + "\n\n";
 
   cart.forEach((item, index) => {
 
     message += (index + 1) + ". " + item.name + "\n";
-
     message += "Quantidade: " + item.quantity + "\n";
-
     message += "Adicionais: " + item.details + "\n";
-
     message += "Valor: " + formatPrice(item.total) + "\n\n";
 
   });
 
-  message += "💰 *TOTAL: " + formatPrice(getCartTotal()) + "*\n";
+  message += "*TOTAL: " + formatPrice(getCartTotal()) + "*\n";
 
   if (note) {
-
-    message += "\n📝 *Observações:* " + note + "\n";
-
+    message += "\nObservações: " + note;
   }
-
-  message += "\nPedido realizado pelo site VXFOOD.";
 
   const url = "https://wa.me/" + WHATSAPP +
     "?text=" + encodeURIComponent(message);
@@ -1254,11 +1016,6 @@ function finishOrder() {
   window.open(url, "_blank");
 
 }
-
-
-// ===================================
-// INICIALIZAÇÃO
-// ===================================
 
 renderCart();
 
