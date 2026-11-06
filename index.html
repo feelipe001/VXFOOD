@@ -45,7 +45,7 @@ body {
   transition:background .25s,color .25s;
 }
 
-button,input,textarea {font:inherit;}
+button,input,textarea,select {font:inherit;}
 button {cursor:pointer;}
 
 .topbar {
@@ -169,7 +169,7 @@ button {cursor:pointer;}
 
 .highlight {color:var(--accent);}
 
-/* LISTA COMPACTA DE PRODUTOS */
+/* PRODUTOS COMPACTOS */
 
 .products-grid {
   display:grid;
@@ -214,7 +214,7 @@ button {cursor:pointer;}
   width:100%;
 }
 
-/* MONTAGEM DO PRODUTO */
+/* MONTAGEM */
 
 .builder {
   display:none;
@@ -459,6 +459,8 @@ button {cursor:pointer;}
   color:var(--accent);
 }
 
+/* FORMULÁRIO */
+
 .order-form {margin-top:22px;}
 
 .order-form h3 {
@@ -475,7 +477,8 @@ button {cursor:pointer;}
 }
 
 .order-form input,
-.order-form textarea {
+.order-form textarea,
+.order-form select {
   width:100%;
   background:var(--input);
   color:var(--text);
@@ -487,7 +490,8 @@ button {cursor:pointer;}
 }
 
 .order-form input:focus,
-.order-form textarea:focus {
+.order-form textarea:focus,
+.order-form select:focus {
   border-color:var(--accent);
 }
 
@@ -495,6 +499,23 @@ button {cursor:pointer;}
   resize:vertical;
   min-height:90px;
 }
+
+.delivery-notice {
+  display:none;
+  background:var(--secondary);
+  border:1px solid var(--accent);
+  color:var(--text);
+  border-radius:12px;
+  padding:14px;
+  margin-top:12px;
+  font-size:15px;
+  line-height:1.5;
+}
+
+.delivery-notice.show {display:block;}
+
+.address-field {display:none;}
+.address-field.show {display:block;}
 
 .whatsapp-button {
   background:#25d366;
@@ -569,7 +590,7 @@ button {cursor:pointer;}
     <div id="acaiProducts" class="products-grid"></div>
     <div id="acaiBuilder" class="builder"></div>
 
-    <div class="cart-section">
+    <div class="cart-section" id="cartSectionAcai">
       <h2 class="cart-title">🛒 Meu pedido</h2>
       <p class="cart-subtitle">Confira os produtos antes de finalizar.</p>
 
@@ -588,8 +609,21 @@ button {cursor:pointer;}
         <label for="customerNameAcai">Seu nome</label>
         <input id="customerNameAcai" type="text" placeholder="Digite seu nome">
 
-        <label for="customerAddressAcai">Endereço de entrega</label>
-        <input id="customerAddressAcai" type="text" placeholder="Rua, número e bairro">
+        <label for="deliveryTypeAcai">Como deseja receber?</label>
+        <select id="deliveryTypeAcai" onchange="updateDeliveryFields('acai')">
+          <option value="">Selecione uma opção</option>
+          <option value="Retirada">Retirada no local</option>
+          <option value="Entrega">Entrega</option>
+        </select>
+
+        <div class="delivery-notice" id="deliveryNoticeAcai">
+          A disponibilidade e a taxa de entrega serão consultadas pelo WhatsApp. O valor da entrega não está incluído no total do pedido.
+        </div>
+
+        <div class="address-field" id="addressFieldAcai">
+          <label for="customerAddressAcai">Endereço de entrega</label>
+          <input id="customerAddressAcai" type="text" placeholder="Rua, número e bairro">
+        </div>
 
         <label for="customerNotesAcai">Observações</label>
         <textarea id="customerNotesAcai" placeholder="Complemento, referência ou observação..."></textarea>
@@ -614,7 +648,7 @@ button {cursor:pointer;}
     <div id="pastelProducts" class="products-grid"></div>
     <div id="pastelBuilder" class="builder"></div>
 
-    <div class="cart-section">
+    <div class="cart-section" id="cartSectionPastel">
       <h2 class="cart-title">🛒 Meu pedido</h2>
       <p class="cart-subtitle">Confira os produtos antes de finalizar.</p>
 
@@ -633,8 +667,21 @@ button {cursor:pointer;}
         <label for="customerNamePastel">Seu nome</label>
         <input id="customerNamePastel" type="text" placeholder="Digite seu nome">
 
-        <label for="customerAddressPastel">Endereço de entrega</label>
-        <input id="customerAddressPastel" type="text" placeholder="Rua, número e bairro">
+        <label for="deliveryTypePastel">Como deseja receber?</label>
+        <select id="deliveryTypePastel" onchange="updateDeliveryFields('pastel')">
+          <option value="">Selecione uma opção</option>
+          <option value="Retirada">Retirada no local</option>
+          <option value="Entrega">Entrega</option>
+        </select>
+
+        <div class="delivery-notice" id="deliveryNoticePastel">
+          A disponibilidade e a taxa de entrega serão consultadas pelo WhatsApp. O valor da entrega não está incluído no total do pedido.
+        </div>
+
+        <div class="address-field" id="addressFieldPastel">
+          <label for="customerAddressPastel">Endereço de entrega</label>
+          <input id="customerAddressPastel" type="text" placeholder="Rua, número e bairro">
+        </div>
 
         <label for="customerNotesPastel">Observações</label>
         <textarea id="customerNotesPastel" placeholder="Complemento, referência ou observação..."></textarea>
@@ -776,8 +823,8 @@ function openCategory(category) {
   });
 
   document.getElementById(category).classList.add("active");
-
   closeBuilder(category);
+
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
@@ -794,8 +841,6 @@ function goHome() {
 function getProducts(category) {
   return category==="acai" ? acaiProducts : pastelProducts;
 }
-
-/* MOSTRA OS PRODUTOS EM CAIXINHAS */
 
 function renderProducts(category) {
   const products=getProducts(category);
@@ -822,8 +867,6 @@ function renderProducts(category) {
     container.appendChild(card);
   });
 }
-
-/* ABRE A MONTAGEM DO PRODUTO ESCOLHIDO */
 
 function openBuilder(category,index) {
   const product=getProducts(category)[index];
@@ -853,7 +896,6 @@ function openBuilder(category,index) {
     <div class="builder-base-price">${money(product.price)}</div>
 
     <span class="label">Escolha seus adicionais</span>
-
     <div class="option-list">${extrasHTML}</div>
 
     <div class="quantity-row">
@@ -929,11 +971,8 @@ function updateSubtotal(category) {
     money(unitPrice*quantity);
 }
 
-/* ADICIONA AO CARRINHO */
-
 function addToCart(category) {
   const index=selectedProduct[category];
-
   if(index===null) return;
 
   const product=getProducts(category)[index];
@@ -964,14 +1003,10 @@ function addToCart(category) {
   renderCart(category);
   closeBuilder(category);
 
-  const cartSection=document.getElementById(
+  document.getElementById(
     category==="acai" ? "cartSectionAcai" : "cartSectionPastel"
-  );
-
-  cartSection.scrollIntoView({behavior:"smooth",block:"start"});
+  ).scrollIntoView({behavior:"smooth",block:"start"});
 }
-
-/* CARRINHO */
 
 function renderCart(category) {
   const items=carts[category];
@@ -1016,7 +1051,40 @@ function removeItem(category,index) {
   renderCart(category);
 }
 
-/* FINALIZAÇÃO PELO WHATSAPP */
+/* MOSTRA OU ESCONDE O ENDEREÇO DE ENTREGA */
+
+function updateDeliveryFields(category) {
+  const suffix=category==="acai" ? "Acai" : "Pastel";
+
+  const deliveryType=document.getElementById(
+    "deliveryType"+suffix
+  ).value;
+
+  const addressField=document.getElementById(
+    "addressField"+suffix
+  );
+
+  const notice=document.getElementById(
+    "deliveryNotice"+suffix
+  );
+
+  const addressInput=document.getElementById(
+    "customerAddress"+suffix
+  );
+
+  if(deliveryType==="Entrega") {
+    addressField.classList.add("show");
+    notice.classList.add("show");
+    addressInput.required=true;
+  } else {
+    addressField.classList.remove("show");
+    notice.classList.remove("show");
+    addressInput.required=false;
+    addressInput.value="";
+  }
+}
+
+/* ENVIA O PEDIDO PARA O WHATSAPP */
 
 function sendOrder(category) {
   const items=carts[category];
@@ -1028,9 +1096,21 @@ function sendOrder(category) {
 
   const suffix=category==="acai" ? "Acai" : "Pastel";
 
-  const name=document.getElementById("customerName"+suffix).value.trim();
-  const address=document.getElementById("customerAddress"+suffix).value.trim();
-  const notes=document.getElementById("customerNotes"+suffix).value.trim();
+  const name=document.getElementById(
+    "customerName"+suffix
+  ).value.trim();
+
+  const deliveryType=document.getElementById(
+    "deliveryType"+suffix
+  ).value;
+
+  const address=document.getElementById(
+    "customerAddress"+suffix
+  ).value.trim();
+
+  const notes=document.getElementById(
+    "customerNotes"+suffix
+  ).value.trim();
 
   if(!name) {
     alert("Digite seu nome para continuar.");
@@ -1038,7 +1118,13 @@ function sendOrder(category) {
     return;
   }
 
-  if(!address) {
+  if(!deliveryType) {
+    alert("Selecione se deseja retirada ou entrega.");
+    document.getElementById("deliveryType"+suffix).focus();
+    return;
+  }
+
+  if(deliveryType==="Entrega" && !address) {
     alert("Digite seu endereço de entrega.");
     document.getElementById("customerAddress"+suffix).focus();
     return;
@@ -1046,8 +1132,16 @@ function sendOrder(category) {
 
   let message="🛍️ *NOVO PEDIDO VXFOOD*\n\n";
   message+=`👤 *Nome:* ${name}\n`;
-  message+=`📍 *Endereço:* ${address}\n\n`;
-  message+="*PEDIDO:*\n";
+
+  if(deliveryType==="Retirada") {
+    message+="📦 *Forma de recebimento:* Retirada no local\n";
+  } else {
+    message+="🚚 *Forma de recebimento:* Entrega\n";
+    message+=`📍 *Endereço:* ${address}\n`;
+    message+="ℹ️ *Entrega:* Consultar disponibilidade e taxa pelo WhatsApp.\n";
+  }
+
+  message+="\n*PEDIDO:*\n";
 
   items.forEach((item,index)=>{
     message+=`\n${index+1}. ${item.quantity}x ${item.name}\n`;
@@ -1061,13 +1155,21 @@ function sendOrder(category) {
   });
 
   const total=items.reduce((sum,item)=>sum+item.total,0);
-  message+=`\n💰 *TOTAL: ${money(total)}*\n`;
 
-  if(notes) message+=`\n📝 *Observações:* ${notes}\n`;
+  message+=`\n💰 *TOTAL DOS PRODUTOS: ${money(total)}*\n`;
+
+  if(deliveryType==="Entrega") {
+    message+="🚚 *Taxa de entrega:* A consultar pelo WhatsApp.\n";
+  }
+
+  if(notes) {
+    message+=`\n📝 *Observações:* ${notes}\n`;
+  }
 
   message+="\nPedido enviado pelo site VXFOOD.";
 
   const url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+
   window.open(url,"_blank");
 }
 
